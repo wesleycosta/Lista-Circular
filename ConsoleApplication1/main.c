@@ -69,20 +69,20 @@ int Inserir(LISTA *pLista, ELEMENTO elemento)
 		// VERIFICA SE A LISTA ESTA VAZIA
 		if (ListaVazia(pLista))
 		{
-			novoElemento->proximo = novoElemento; // O PROXIMO DO NOVO ELEMENTO APONTA PARA O INICIO DA FILA  (NOVO ELEMENTO)
-			novoElemento->anterior = novoElemento; // O ANTERIRO DO NOVO ELEMENTO APONTA PARA O FINAL DA FILA (NOVO ELEMENTO)
-			pLista->inicio = novoElemento; // INICIO DA FILA RECEBE O NOVO ELEMENTO
+			novoElemento->proximo = novoElemento; // O PROXIMO DO NOVO ELEMENTO APONTA PARA O INICIO DA LISTA  (NOVO ELEMENTO)
+			novoElemento->anterior = novoElemento; // O ANTERIRO DO NOVO ELEMENTO APONTA PARA O FINAL DA LISTA (NOVO ELEMENTO)
+			pLista->inicio = novoElemento; // INICIO DA LISTA RECEBE O NOVO ELEMENTO
 		}
 		else
 		{
-			novoElemento->anterior = pLista->fim; // O ANTERIOR DO NOVO ELEMENTO APONTA PARA O ULTIMO ELEMENTO DA FILA
-			novoElemento->proximo = pLista->inicio; // O PROXIMO  DO NOVO ELEMENTO APONTA PARA O INICIO DA FILA
+			novoElemento->anterior = pLista->fim; // O ANTERIOR DO NOVO ELEMENTO APONTA PARA O ULTIMO ELEMENTO DA LISTA
+			novoElemento->proximo = pLista->inicio; // O PROXIMO  DO NOVO ELEMENTO APONTA PARA O INICIO DA LISTA
 
-			pLista->fim->proximo = novoElemento;   // O PROXIMO DO ULTIMO ELEMNTO APONTA PARA O NOVO ELEMENTO
-			pLista->inicio->anterior = novoElemento; // O ANTERIOR DO inicio APONTA PARA O FINAL DA LISTA
+			pLista->fim->proximo = novoElemento;   // O PROXIMO DO ULTIMO ELEMENTO APONTA PARA O NOVO ELEMENTO
+			pLista->inicio->anterior = novoElemento; // O ANTERIOR DO INICIO APONTA PARA O FINAL DA LISTA
 		}
 
-		pLista->fim = novoElemento; // fim RECEBE O NOVO ELEMENTO
+		pLista->fim = novoElemento; // FIM RECEBE O NOVO ELEMENTO
 		return pLista->totalElementos++;
 	}
 }
