@@ -23,7 +23,7 @@ typedef struct lista
 LISTA* CriarLista()
 {
 	LISTA *pLista = (LISTA *)malloc(sizeof(LISTA));
-	pLista->inicio = 0;
+	pLista->inicio = NULL;
 	pLista->fim = NULL;
 	pLista->totalElementos = 0;
 
@@ -47,9 +47,11 @@ ELEMENTO_NO *BuscarElemento(LISTA *pLista, ELEMENTO elemento)
 	ELEMENTO_NO *pIndex = NULL;
 	int index = 0;
 
-	for (pIndex = pLista->fim; index < pLista->totalElementos; pIndex = pIndex->proximo)
+	for (pIndex = pLista->inicio; index < pLista->totalElementos; pIndex = pIndex->proximo)
 	if (Igual(pIndex->elemento, elemento))
 		return pIndex;
+	else
+		index++;
 
 	return NULL;
 }
@@ -106,6 +108,10 @@ int Remover(LISTA *pLista, ELEMENTO elemento)
 		{
 			pLista->fim = elementoAntes;
 			pLista->inicio->anterior = elementoAntes;
+
+			// VERIFICA SE VAI REMOVER O ULTIMO ELEMENTO, CASO SIM ENTÃO LIMPA A LISTA
+			if (pLista->inicio == elementoEncontrado)
+				pLista->inicio = pLista->fim = NULL;
 		}
 		else if (elementoEncontrado == pLista->inicio)
 		{
@@ -177,13 +183,31 @@ int main()
 
 	elemento.valor = 1;
 	Remover(pLista, elemento);
-	elemento.valor = 3;
+	elemento.valor = 5;
 	Remover(pLista, elemento);
-	elemento.valor = 4;
+	elemento.valor = 10;
 	Remover(pLista, elemento);
+
 
 	Ordernar(pLista);
+	printf("\n\n");
+	Imprimir(pLista);
 
+	for (i = 10; i > 0; i--)
+	{
+		elemento.valor = i;
+		Remover(pLista, elemento);
+	}
+	printf("\n\n");
+	Imprimir(pLista);
+	
+	for (i = 30; i > 0; i-=3)
+	{
+		elemento.valor = i;
+		Inserir(pLista, elemento);
+	}
+
+	printf("\n\n");
 	Imprimir(pLista);
 
 	Pause();
