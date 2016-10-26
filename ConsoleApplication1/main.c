@@ -18,6 +18,7 @@ typedef struct lista
 	ELEMENTO_NO *inicio;
 	ELEMENTO_NO *fim;
 	int totalElementos;
+
 }LISTA;
 
 LISTA* CriarLista()
