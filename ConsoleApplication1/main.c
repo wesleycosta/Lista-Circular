@@ -193,7 +193,6 @@ int main()
 	elemento.valor = 10;
 	Remover(pLista, elemento);
 
-
 	Ordernar(pLista);
 	printf("\n\n");
 	Imprimir(pLista);
