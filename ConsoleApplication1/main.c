@@ -34,18 +34,17 @@ int ListaVazia(LISTA *pLista)
 	return !pLista->inicio;
 }
 
-// VERIFICA SE DOIS ELEMENTOS SﾃO IGUAIS
+// VERIFICA SE DOIS ELEMENTOS Sﾃグ IGUAIS
 int Igual(ELEMENTO A, ELEMENTO B)
 {
 	return A.valor == B.valor;
 }
 
-// BUSCA UM ELEMENTO NA LISTA, CASO NﾃO EXISTA RETORNA NULL
+// BUSCA UM ELEMENTO NA LISTA, CASO Nﾃグ EXISTA RETORNA NULL
 ELEMENTO_NO *BuscarElemento(LISTA *pLista, ELEMENTO elemento)
 {
 	if (!ListaVazia(pLista))
 	{
-		int index = 0;
 		ELEMENTO_NO *pIndex = pLista->inicio;
 
 		do
@@ -97,7 +96,7 @@ int Remover(LISTA *pLista, ELEMENTO elemento)
 {
 	ELEMENTO_NO *elementoEncontrado = BuscarElemento(pLista, elemento);
 
-	// ELEMENTO NﾃO EXISTENTE
+	// ELEMENTO Nﾃグ EXISTENTE
 	if (!elementoEncontrado)
 		return -1;
 	else
@@ -113,7 +112,7 @@ int Remover(LISTA *pLista, ELEMENTO elemento)
 			pLista->fim = elementoAntes;
 			pLista->inicio->anterior = elementoAntes;
 
-			// VERIFICA SE VAI REMOVER O ULTIMO ELEMENTO, CASO SIM ENTﾃO LIMPA A LISTA
+			// VERIFICA SE VAI REMOVER O ULTIMO ELEMENTO, CASO SIM ENTﾃグ LIMPA A LISTA
 			if (pLista->inicio == elementoEncontrado)
 				pLista->inicio = pLista->fim = NULL;
 		}
